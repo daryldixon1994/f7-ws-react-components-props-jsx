@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Fenix:regular");
+* {
+  box-sizing: border-box;
+  font-family: "Fenix";
+}
+body {
+  margin: 0;
+}
