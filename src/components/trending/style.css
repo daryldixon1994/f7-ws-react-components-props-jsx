@@ -1,0 +1,26 @@
+#trending {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  width: 840px;
+  margin: auto;
+  padding: 40px;
+}
+#trending div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+#trending h1 {
+  margin: 0;
+  text-transform: uppercase;
+}
+#trending p {
+  text-align: center;
+  margin: 0;
+}

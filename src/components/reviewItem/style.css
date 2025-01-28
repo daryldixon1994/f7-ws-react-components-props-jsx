@@ -1,0 +1,8 @@
+#review-item {
+  background-color: #67bdb0;
+  padding: 20px;
+}
+#review-item h3 {
+    font-size: 2rem;
+    margin: 0;
+}

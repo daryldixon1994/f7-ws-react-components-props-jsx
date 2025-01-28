@@ -1,0 +1,5 @@
+#hero {
+  display: flex;
+  padding: 10px 50px;
+  justify-content: center;
+}

@@ -1,0 +1,7 @@
+#img-bg {
+  height: 300px;
+  /* background-color: blue; */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

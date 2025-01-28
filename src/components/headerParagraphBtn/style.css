@@ -1,0 +1,16 @@
+#header-paragraph-btn {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#header-paragraph-btn h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+#header-paragraph-btn p {
+  font-size: 1.2rem;
+  width: 80%;
+  text-align: center;
+}
