@@ -1,38 +1,49 @@
 import PropTypes from "prop-types";
 import "./style.css";
 import { TiArrowSortedDown } from "react-icons/ti";
-function NavLink(props) {
-  console.log(props);
-  // props.showIcon
-  // ternary operator
-  // if (props.showIcon) {
-  //   return (
-  //     <a id="nav-link" href="#">
-  //       {props.linkName}
-  //       {/* conditional rendering */}
-  //       <TiArrowSortedDown />
-  //     </a>
-  //   );
-  // } else {
-  //   return (
-  //     <a id="nav-link" href="#">
-  //       {props.linkName}
-  //     </a>
-  //   );
-  // }
+import { NavLink } from "react-router-dom";
+
+
+function Navlink(props) {
+  const activeStyle = {
+    all: "unset",
+    boxSizing: "border-box",
+    fontSize: "1.3rem",
+    fontWeight: 400,
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    color: "#ff0033",
+  };
+  const inactiveStyle = {
+    all: "unset",
+    boxSizing: "border-box",
+    fontSize: "1.2rem",
+    fontWeight: 600,
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+  };
   return (
-    <a id="nav-link" href="#">
+    <NavLink
+      style={({ isActive }) => {
+        return isActive ? activeStyle : inactiveStyle;
+      }}
+      id="nav-link"
+      to={props.linkPath}
+    >
       {props.linkName}
       {/* conditional rendering */}
       {props.showIcon && <TiArrowSortedDown />}
-    </a>
+    </NavLink>
   );
 }
 // props valdation: propTypes
 
-NavLink.propTypes = {
+Navlink.propTypes = {
   linkName: PropTypes.string,
+  linkPath: PropTypes.string,
   showIcon: PropTypes.bool,
 };
 
-export default NavLink;
+export default Navlink;
