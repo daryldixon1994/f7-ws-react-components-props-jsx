@@ -1,28 +1,50 @@
 import PropTypes from "prop-types";
 import "./style.css";
-function MainBtn(props) {
+
+function MainBtn({
+  btnColor,
+  btnBgColor,
+  content,
+  setShowProjects,
+  showProjects,
+  setShowForm,
+  showForm,
+}) {
   // props.btnColor = "black"
-  let message = "Hello from the main btn";
+  console.log("Main btn re-rendered");
   const btnStyle = {
-    color: props.btnColor,
-    backgroundColor: props.btnBgColor,
+    color: btnColor,
+    backgroundColor: btnBgColor,
   };
+
   return (
-    <button
-      onClick={() => props.notification(message)}
-      style={btnStyle}
-      id="main-btn"
-    >
-      {props.content}
-    </button>
+    <span>
+      <button
+        onClick={() => {
+          {
+            setShowProjects && setShowProjects(!showProjects);
+          }
+          {
+            setShowForm && setShowForm(!showForm);
+          }
+        }}
+        style={btnStyle}
+        id="main-btn"
+      >
+        {content}
+      </button>
+    </span>
   );
 }
 
 MainBtn.propTypes = {
   btnColor: PropTypes.string,
   btnBgColor: PropTypes.string,
-  notification: PropTypes.func,
   content: PropTypes.string,
+  setShowProjects: PropTypes.func,
+  setShowForm: PropTypes.func,
+  showProjects: PropTypes.bool,
+  showForm: PropTypes.bool,
 };
 
 export default MainBtn;

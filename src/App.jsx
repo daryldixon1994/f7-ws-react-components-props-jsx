@@ -8,20 +8,27 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import "./App.css";
 import NotFound from "./pages/notFound/NotFound";
+import { useState } from "react";
 function App() {
   // route ==> page ==> component
   // Routes, Route
-
+  console.log("App re-rendered");
+  const [showForm, setShowForm] = useState(false);
   return (
     <div>
-      <Navbar />
+      <Navbar setShowForm={setShowForm} showForm={showForm} />
       {/* <Hero />
       <Trending />
       <Reviews />
       <Projects /> */}
       <Routes>
         {/* landing page */}
-        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/"
+          element={
+            <LandingPage showForm={showForm} setShowForm={setShowForm} />
+          }
+        />
         <Route path="/tutorials" element={<Tutorials />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/news" element={<News test="mohammed" />} />

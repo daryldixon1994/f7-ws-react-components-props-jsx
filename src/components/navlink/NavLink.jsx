@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import "./style.css";
-import { TiArrowSortedDown } from "react-icons/ti";
+import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import { NavLink } from "react-router-dom";
-
+import { useState } from "react";
 
 function Navlink(props) {
+  const [showList, setShowList] = useState(false);
   const activeStyle = {
     all: "unset",
     boxSizing: "border-box",
@@ -25,17 +26,35 @@ function Navlink(props) {
     alignItems: "center",
   };
   return (
-    <NavLink
-      style={({ isActive }) => {
-        return isActive ? activeStyle : inactiveStyle;
-      }}
-      id="nav-link"
-      to={props.linkPath}
+    <span
+      id="navlink-parent"
+      style={{ display: "flex", alignItems: "center", gap: "5px" }}
     >
-      {props.linkName}
-      {/* conditional rendering */}
-      {props.showIcon && <TiArrowSortedDown />}
-    </NavLink>
+      <NavLink
+        style={({ isActive }) => {
+          return isActive ? activeStyle : inactiveStyle;
+        }}
+        id="nav-link"
+        to={props.linkPath}
+      >
+        {props.linkName}
+        {/* conditional rendering */}
+      </NavLink>
+      {props.showIcon && showList ? (
+        <TiArrowSortedUp onClick={() => setShowList(!showList)} />
+      ) : (
+        props.showIcon && (
+          <TiArrowSortedDown onClick={() => setShowList(!showList)} />
+        )
+      )}
+      {props.showIcon && showList && (
+        <ul id="tutorial-list">
+          <li>Tutorial 1</li>
+          <li>Tutorial 2</li>
+          <li>Tutorial 3</li>
+        </ul>
+      )}
+    </span>
   );
 }
 // props valdation: propTypes

@@ -1,13 +1,15 @@
+import PropTypes from "prop-types";
 import MainBtn from "../mainbtn/MainBtn";
 import NavLink from "../navlink/NavLink";
 import "./style.css";
 
-const Navbar = () => {
+const Navbar = ({ setShowForm, showForm }) => {
   // const titleStyle = {
   //   color: "red",
   //   fontSize: "1.5rem",
   // };
   // let mainColor = "black";
+  console.log("Navbar re-rendered");
   function notification(btnMessage) {
     console.log(btnMessage);
   }
@@ -65,9 +67,16 @@ const Navbar = () => {
         btnBgColor="white"
         content="ASK A QUESTION"
         notification={notification}
+        setShowForm={setShowForm}
+        showForm={showForm}
       />
     </div>
   );
+};
+
+Navbar.propTypes = {
+  showForm: PropTypes.bool,
+  setShowForm: PropTypes.func,
 };
 
 export default Navbar;
